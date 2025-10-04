@@ -985,6 +985,16 @@
             "rid": "win"
           }
         }
+      },
+      "PruebaTecnicaAPI.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PruebaTecnicaAPI.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PruebaTecnicaAPI.Model.dll": {}
+        }
       }
     }
   },
@@ -2692,12 +2702,18 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "PruebaTecnicaAPI.Model/1.0.0": {
+      "type": "project",
+      "path": "../PruebaTecnicaAPI.Model/PruebaTecnicaAPI.Model.csproj",
+      "msbuildProject": "../PruebaTecnicaAPI.Model/PruebaTecnicaAPI.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "Microsoft.EntityFrameworkCore >= 7.0.20",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.20"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.20",
+      "PruebaTecnicaAPI.Model >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2731,7 +2747,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\PruebaTecnicaWellman2025\\PruebaTecnicaWellman2025\\PruebaTecnicaAPI\\PruebaTecnicaAPI\\PruebaTecnicaAPI.Model\\PruebaTecnicaAPI.Model.csproj": {
+              "projectPath": "C:\\PruebaTecnicaWellman2025\\PruebaTecnicaWellman2025\\PruebaTecnicaAPI\\PruebaTecnicaAPI\\PruebaTecnicaAPI.Model\\PruebaTecnicaAPI.Model.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
