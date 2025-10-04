@@ -24,5 +24,11 @@ namespace PruebaTecnicaAPI.DataAccess
             context.Empleado.Add(_emp);
             context.SaveChanges();
         }
+
+        public void ModificarEmpleado(Model.Empleado _emp)
+        {
+            context.Update(_emp);
+            context.SaveChanges();
+        }
     }
 }

@@ -22,5 +22,10 @@ namespace PruebaTecnicaAPI.BusinessLogic
         {
             empleado.InsertarEmpleado(emp);
         }
+
+        public void ModificarEmpleado(Model.Empleado emp)
+        {
+            empleado.ModificarEmpleado(emp);
+        }
     }
 }
