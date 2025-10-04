@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaTecnicaAPI.DataAccess
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaTecnicaAPI.BusinessLogic.Interface", "PruebaTecnicaAPI.BusinessLogic.Interface\PruebaTecnicaAPI.BusinessLogic.Interface.csproj", "{D0B78A64-E96D-4FD8-A0D9-6D108A67F515}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaTecnicaAPI.BusinessLogic", "PruebaTecnicaAPI.BusinessLogic\PruebaTecnicaAPI.BusinessLogic.csproj", "{27F3266D-DE26-417F-B31B-74CF771112EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D0B78A64-E96D-4FD8-A0D9-6D108A67F515}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0B78A64-E96D-4FD8-A0D9-6D108A67F515}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0B78A64-E96D-4FD8-A0D9-6D108A67F515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27F3266D-DE26-417F-B31B-74CF771112EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27F3266D-DE26-417F-B31B-74CF771112EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27F3266D-DE26-417F-B31B-74CF771112EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27F3266D-DE26-417F-B31B-74CF771112EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
