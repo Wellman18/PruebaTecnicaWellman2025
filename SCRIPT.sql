@@ -10,20 +10,20 @@ GO
 CREATE TABLE Empleado
 (
 IdEmpleado INT IDENTITY(1,1) PRIMARY KEY,
-Nombre VARCHAR(500),
-Apellido VARCHAR(500),
-FechaIngreso DATETIME,
-NombrePuesto VARCHAR(500),
-IdTipoIdentificacion INT,
-NumeroIdentificacion VARCHAR(50)
+Nombre VARCHAR(500) NOT NULL,
+Apellido VARCHAR(500) NOT NULL,
+FechaIngreso DATETIME NOT NULL,
+NombrePuesto VARCHAR(500) NOT NULL,
+IdTipoIdentificacion INT NOT NULL,
+NumeroIdentificacion VARCHAR(50) NOT NULL
 )
 GO
 
 CREATE TABLE TipoIdentificacion
 (
 IdTipoIdentificacion INT IDENTITY(1,1) PRIMARY KEY,
-Codigo VARCHAR(20),
-Descripcion VARCHAR(100)
+Codigo VARCHAR(20) NOT NULL,
+Descripcion VARCHAR(100) NOT NULL
 )
 GO
 

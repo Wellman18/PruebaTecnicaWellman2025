@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PruebaTecnicaAPI.BusinessLogic.Interface\PruebaTecnicaAPI.BusinessLogic.Interface.csproj" />
+    <ProjectReference Include="..\PruebaTecnicaAPI.BusinessLogic\PruebaTecnicaAPI.BusinessLogic.csproj" />
     <ProjectReference Include="..\PruebaTecnicaAPI.DataAccess.Interface\PruebaTecnicaAPI.DataAccess.Interface.csproj" />
     <ProjectReference Include="..\PruebaTecnicaAPI.DataAccess\PruebaTecnicaAPI.DataAccess.csproj" />
     <ProjectReference Include="..\PruebaTecnicaAPI.Model\PruebaTecnicaAPI.Model.csproj" />

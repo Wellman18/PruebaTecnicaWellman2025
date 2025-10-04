@@ -1,0 +1,12 @@
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI.Model\bin\Debug\net7.0\PruebaTecnicaAPI.Model.deps.json
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI.Model\bin\Debug\net7.0\PruebaTecnicaAPI.Model.dll
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI.Model\bin\Debug\net7.0\PruebaTecnicaAPI.Model.pdb
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI.Model\obj\Debug\net7.0\PruebaTecnicaAPI.Model.csproj.AssemblyReference.cache
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI.Model\obj\Debug\net7.0\PruebaTecnicaAPI.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI.Model\obj\Debug\net7.0\PruebaTecnicaAPI.Model.AssemblyInfoInputs.cache
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI.Model\obj\Debug\net7.0\PruebaTecnicaAPI.Model.AssemblyInfo.cs
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI.Model\obj\Debug\net7.0\PruebaTecnicaAPI.Model.csproj.CoreCompileInputs.cache
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI.Model\obj\Debug\net7.0\PruebaTecnicaAPI.Model.dll
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI.Model\obj\Debug\net7.0\refint\PruebaTecnicaAPI.Model.dll
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI.Model\obj\Debug\net7.0\PruebaTecnicaAPI.Model.pdb
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI.Model\obj\Debug\net7.0\ref\PruebaTecnicaAPI.Model.dll

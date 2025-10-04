@@ -986,6 +986,20 @@
           }
         }
       },
+      "PruebaTecnicaAPI.DataAccess.Interface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.20",
+          "PruebaTecnicaAPI.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PruebaTecnicaAPI.DataAccess.Interface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PruebaTecnicaAPI.DataAccess.Interface.dll": {}
+        }
+      },
       "PruebaTecnicaAPI.Model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -2703,6 +2717,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "PruebaTecnicaAPI.DataAccess.Interface/1.0.0": {
+      "type": "project",
+      "path": "../PruebaTecnicaAPI.DataAccess.Interface/PruebaTecnicaAPI.DataAccess.Interface.csproj",
+      "msbuildProject": "../PruebaTecnicaAPI.DataAccess.Interface/PruebaTecnicaAPI.DataAccess.Interface.csproj"
+    },
     "PruebaTecnicaAPI.Model/1.0.0": {
       "type": "project",
       "path": "../PruebaTecnicaAPI.Model/PruebaTecnicaAPI.Model.csproj",
@@ -2713,6 +2732,7 @@
     "net7.0": [
       "Microsoft.EntityFrameworkCore >= 7.0.20",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.20",
+      "PruebaTecnicaAPI.DataAccess.Interface >= 1.0.0",
       "PruebaTecnicaAPI.Model >= 1.0.0"
     ]
   },
@@ -2748,6 +2768,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "C:\\PruebaTecnicaWellman2025\\PruebaTecnicaWellman2025\\PruebaTecnicaAPI\\PruebaTecnicaAPI\\PruebaTecnicaAPI.DataAccess.Interface\\PruebaTecnicaAPI.DataAccess.Interface.csproj": {
+              "projectPath": "C:\\PruebaTecnicaWellman2025\\PruebaTecnicaWellman2025\\PruebaTecnicaAPI\\PruebaTecnicaAPI\\PruebaTecnicaAPI.DataAccess.Interface\\PruebaTecnicaAPI.DataAccess.Interface.csproj"
+            },
             "C:\\PruebaTecnicaWellman2025\\PruebaTecnicaWellman2025\\PruebaTecnicaAPI\\PruebaTecnicaAPI\\PruebaTecnicaAPI.Model\\PruebaTecnicaAPI.Model.csproj": {
               "projectPath": "C:\\PruebaTecnicaWellman2025\\PruebaTecnicaWellman2025\\PruebaTecnicaAPI\\PruebaTecnicaAPI\\PruebaTecnicaAPI.Model\\PruebaTecnicaAPI.Model.csproj"
             }

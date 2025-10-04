@@ -1092,6 +1092,20 @@
           }
         }
       },
+      "PruebaTecnicaAPI.BusinessLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "PruebaTecnicaAPI.BusinessLogic.Interface": "1.0.0",
+          "PruebaTecnicaAPI.DataAccess.Interface": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PruebaTecnicaAPI.BusinessLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PruebaTecnicaAPI.BusinessLogic.dll": {}
+        }
+      },
       "PruebaTecnicaAPI.BusinessLogic.Interface/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -1111,6 +1125,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.20",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.20",
+          "PruebaTecnicaAPI.DataAccess.Interface": "1.0.0",
           "PruebaTecnicaAPI.Model": "1.0.0"
         },
         "compile": {
@@ -3192,6 +3207,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "PruebaTecnicaAPI.BusinessLogic/1.0.0": {
+      "type": "project",
+      "path": "../PruebaTecnicaAPI.BusinessLogic/PruebaTecnicaAPI.BusinessLogic.csproj",
+      "msbuildProject": "../PruebaTecnicaAPI.BusinessLogic/PruebaTecnicaAPI.BusinessLogic.csproj"
+    },
     "PruebaTecnicaAPI.BusinessLogic.Interface/1.0.0": {
       "type": "project",
       "path": "../PruebaTecnicaAPI.BusinessLogic.Interface/PruebaTecnicaAPI.BusinessLogic.Interface.csproj",
@@ -3216,6 +3236,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "Microsoft.AspNetCore.OpenApi >= 7.0.2",
+      "PruebaTecnicaAPI.BusinessLogic >= 1.0.0",
       "PruebaTecnicaAPI.BusinessLogic.Interface >= 1.0.0",
       "PruebaTecnicaAPI.DataAccess >= 1.0.0",
       "PruebaTecnicaAPI.DataAccess.Interface >= 1.0.0",
@@ -3257,6 +3278,9 @@
           "projectReferences": {
             "C:\\PruebaTecnicaWellman2025\\PruebaTecnicaWellman2025\\PruebaTecnicaAPI\\PruebaTecnicaAPI\\PruebaTecnicaAPI.BusinessLogic.Interface\\PruebaTecnicaAPI.BusinessLogic.Interface.csproj": {
               "projectPath": "C:\\PruebaTecnicaWellman2025\\PruebaTecnicaWellman2025\\PruebaTecnicaAPI\\PruebaTecnicaAPI\\PruebaTecnicaAPI.BusinessLogic.Interface\\PruebaTecnicaAPI.BusinessLogic.Interface.csproj"
+            },
+            "C:\\PruebaTecnicaWellman2025\\PruebaTecnicaWellman2025\\PruebaTecnicaAPI\\PruebaTecnicaAPI\\PruebaTecnicaAPI.BusinessLogic\\PruebaTecnicaAPI.BusinessLogic.csproj": {
+              "projectPath": "C:\\PruebaTecnicaWellman2025\\PruebaTecnicaWellman2025\\PruebaTecnicaAPI\\PruebaTecnicaAPI\\PruebaTecnicaAPI.BusinessLogic\\PruebaTecnicaAPI.BusinessLogic.csproj"
             },
             "C:\\PruebaTecnicaWellman2025\\PruebaTecnicaWellman2025\\PruebaTecnicaAPI\\PruebaTecnicaAPI\\PruebaTecnicaAPI.DataAccess.Interface\\PruebaTecnicaAPI.DataAccess.Interface.csproj": {
               "projectPath": "C:\\PruebaTecnicaWellman2025\\PruebaTecnicaWellman2025\\PruebaTecnicaAPI\\PruebaTecnicaAPI\\PruebaTecnicaAPI.DataAccess.Interface\\PruebaTecnicaAPI.DataAccess.Interface.csproj"
