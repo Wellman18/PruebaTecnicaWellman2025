@@ -110,5 +110,24 @@ namespace PruebaTecnicaAPI.Controllers
                 });
             }
         }
+
+
+        [HttpGet]
+        [Route("ObtenerEmpleado")]
+
+        public async Task<IEnumerable<Model.Empleado>> ObtenerEmpleado()
+        {
+            try
+            {
+                listaEmpleados = empleado.ListarEmpleado();
+
+                return listaEmpleados;
+            }
+            catch (Exception ex)
+            {
+                return listaEmpleados;
+            }
+
+        }
     }
 }

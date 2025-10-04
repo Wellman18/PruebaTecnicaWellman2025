@@ -14,5 +14,7 @@ namespace PruebaTecnicaAPI.DataAccess.Interface
         void ModificarEmpleado(Empleado empleado);
 
         void EliminarEmpleado(Empleado empleado);
+
+        IEnumerable<Model.Empleado> ListarEmpleado();
     }
 }

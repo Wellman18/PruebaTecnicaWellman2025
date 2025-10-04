@@ -36,5 +36,12 @@ namespace PruebaTecnicaAPI.DataAccess
             context.Empleado.Remove(_emp);
             context.SaveChanges();
         }
+
+        public IEnumerable<Model.Empleado> ListarEmpleado()
+        {
+            var listaEmpleados = context.Empleado.ToList();
+
+            return listaEmpleados;
+        }
     }
 }

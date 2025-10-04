@@ -32,5 +32,12 @@ namespace PruebaTecnicaAPI.BusinessLogic
         {
             empleado.EliminarEmpleado(emp);
         }
+
+        public IEnumerable<Model.Empleado> ListarEmpleado()
+        {
+            var response = empleado.ListarEmpleado();
+
+            return response;
+        }
     }
 }

@@ -48,11 +48,13 @@ C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecn
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\PruebaTecnicaAPI.BusinessLogic.dll
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\PruebaTecnicaAPI.BusinessLogic.Interface.dll
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\PruebaTecnicaAPI.DataAccess.dll
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\PruebaTecnicaAPI.DataAccess.Interface.dll
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\PruebaTecnicaAPI.Model.dll
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\PruebaTecnicaAPI.BusinessLogic.Interface.pdb
+C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\PruebaTecnicaAPI.BusinessLogic.pdb
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\PruebaTecnicaAPI.DataAccess.Interface.pdb
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\PruebaTecnicaAPI.DataAccess.pdb
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\PruebaTecnicaAPI.Model.pdb
@@ -77,5 +79,3 @@ C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecn
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\obj\Debug\net7.0\PruebaTecnicaAPI.pdb
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\obj\Debug\net7.0\PruebaTecnicaAPI.genruntimeconfig.cache
 C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\obj\Debug\net7.0\ref\PruebaTecnicaAPI.dll
-C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\PruebaTecnicaAPI.BusinessLogic.dll
-C:\PruebaTecnicaWellman2025\PruebaTecnicaWellman2025\PruebaTecnicaAPI\PruebaTecnicaAPI\PruebaTecnicaAPI\bin\Debug\net7.0\PruebaTecnicaAPI.BusinessLogic.pdb
