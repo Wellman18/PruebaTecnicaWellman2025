@@ -12,5 +12,7 @@ namespace PruebaTecnicaAPI.BusinessLogic.Interface
         void InsertarEmpleado(Empleado empleado);
 
         void ModificarEmpleado(Empleado empleado);
+
+        void EliminarEmpleado(Empleado empleado);
     }
 }

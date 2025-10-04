@@ -27,5 +27,10 @@ namespace PruebaTecnicaAPI.BusinessLogic
         {
             empleado.ModificarEmpleado(emp);
         }
+
+        public void EliminarEmpleado(Model.Empleado emp)
+        {
+            empleado.EliminarEmpleado(emp);
+        }
     }
 }

@@ -12,5 +12,7 @@ namespace PruebaTecnicaAPI.DataAccess.Interface
         void InsertarEmpleado(Model.Empleado empleado);
 
         void ModificarEmpleado(Empleado empleado);
+
+        void EliminarEmpleado(Empleado empleado);
     }
 }

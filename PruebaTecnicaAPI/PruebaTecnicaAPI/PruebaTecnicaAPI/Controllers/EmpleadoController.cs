@@ -82,5 +82,33 @@ namespace PruebaTecnicaAPI.Controllers
                 });
             }
         }
+
+
+        [HttpPost]
+        [Route("EliminarEmpleado")]
+
+        public async Task<ActionResult> EliminarEmpleado([FromBody] Model.Empleado emp)
+        {
+            try
+            {
+                var _empleado = context.Empleado.Find(emp.IdEmpleado);
+
+                empleado.EliminarEmpleado(_empleado);
+
+                return Ok(new
+                {
+                    success = true,
+                    estado = StatusCode(200)
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    success = false,
+                    estado = ex.Message.ToString()
+                });
+            }
+        }
     }
 }
