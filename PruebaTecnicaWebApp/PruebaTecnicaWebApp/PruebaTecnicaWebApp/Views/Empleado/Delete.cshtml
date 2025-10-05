@@ -1,0 +1,105 @@
+﻿@model PruebaTecnicaWebApp.Models.Empleado
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Empleado</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaIngreso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NombrePuesto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NombrePuesto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdTipoIdentificacion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Identificacion.Descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumeroIdentificacion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumeroIdentificacion)
+        </dd>
+    </dl>
+    
+    <form id="formDelete" asp-action="Delete" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="IdEmpleado" />
+        <button type="submit" class="btn btn-primary">Eliminar</button> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#formDelete").submit(function (e) {
+                e.preventDefault(); // Evita que el form se envíe normalmente
+
+                var token = $('input[name="__RequestVerificationToken"]').val(); // AntiForgeryToken
+
+                var empleado = {
+                    IdEmpleado: $("#IdEmpleado").val(),
+                    Nombre: $("#Nombre").val(),
+                    Apellido: $("#Apellido").val(),
+                    FechaIngreso: $("#FechaIngreso").val(),
+                    NombrePuesto: $("#NombrePuesto").val(),
+                    IdTipoIdentificacion: $("#IdTipoIdentificacion").val(),
+                    NumeroIdentificacion: $("#NumeroIdentificacion").val(),
+                    Identificacion: null
+                };
+
+                $.ajax({
+                    url: '@Url.Action("Delete", "Empleado")', // Llama a tu controller
+                    type: "POST",
+                    headers: {
+                        "RequestVerificationToken": token // Necesario por [ValidateAntiForgeryToken]
+                    },
+                    contentType: "application/json",
+                    data: JSON.stringify(empleado),
+                    success: function (result) {
+                        // Redirigir al index si todo salió bien
+                        window.location.href = '@Url.Action("Index", "Empleado")';
+                    },
+                    error: function (xhr, status, error) {
+                        alert("Error al eliminar el empleado: " + error);
+                    }
+                });
+            });
+        });
+    </script>
+}

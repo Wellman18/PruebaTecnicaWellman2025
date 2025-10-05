@@ -113,7 +113,6 @@ namespace PruebaTecnicaWebApp.Controllers
 
 
             }
-            //return View(usuario);
             return Json(new { success = false, message = "Error al crear usuario" });
         }
 
@@ -169,12 +168,8 @@ namespace PruebaTecnicaWebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, /*[Bind("Id,Nombre,Correo")]*/[FromBody] Empleado empleado)
+        public async Task<IActionResult> Edit(int id,[FromBody] Empleado empleado)
         {
-            //if (id != usuario.Id)
-            //{
-            //    return NotFound();
-            //}
             empleado.IdEmpleado = id;
 
             if (ModelState.IsValid)
@@ -185,41 +180,116 @@ namespace PruebaTecnicaWebApp.Controllers
 
                 var response = await httpClient.PostAsJsonAsync(url, empleado);
 
-                //try
-                //{
-                //    _context.Update(usuario);
-                //    await _context.SaveChangesAsync();
-                //}
-                //catch (DbUpdateConcurrencyException)
-                //{
-                //    if (!UsuarioExists(usuario.Id))
-                //    {
-                //        return NotFound();
-                //    }
-                //    else
-                //    {
-                //        throw;
-                //    }
-                //}
-
                 if (response.IsSuccessStatusCode)
                 {
-                    //return RedirectToAction(nameof(Index));
                     return Json(new { success = true });
                 }
-                else
-                {
-                    //return NotFound(response.StatusCode);
-                }
-
-
-
             }
-            //return View(usuario);
             return Json(new { success = false, message = "Error al editar empleado" });
         }
 
+        public async Task<IActionResult> Delete(int? id)
+        {
+            modelEmpleado = new();
+
+            var url = configuration.GetSection("CustomValues")
+                        .Get<List<CustomValues>>()
+                        .FirstOrDefault(x => x.key == "ObtenerEmpleado")?.value;
+
+            var urlTipoIdentificacion = configuration.GetSection("CustomValues")
+                                    .Get<List<CustomValues>>()
+                                    .FirstOrDefault(x => x.key == "ObtenerTipoIdentificacion")?.value;
+
+            var response = await httpClient.GetAsync(url);
+
+            var responseIdentificacion = await httpClient.GetAsync(urlTipoIdentificacion);
+
+            if (response.IsSuccessStatusCode && responseIdentificacion.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+
+                var contentIdentificacion = await responseIdentificacion.Content.ReadAsStringAsync();
+
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+
+                var listadoEmpleados = JsonSerializer.Deserialize<List<Models.Empleado>>(content, options);
+
+                var listadoTipoIdentificacion = JsonSerializer.Deserialize<List<Models.TipoIdentificacion>>(contentIdentificacion, options);
+
+                foreach (var item in listadoEmpleados)
+                {
+                    item.Identificacion = listadoTipoIdentificacion.FirstOrDefault(t => t.IdTipoIdentificacion == item.IdTipoIdentificacion);
+                }
+
+                modelEmpleado = listadoEmpleados.FirstOrDefault(x => x.IdEmpleado == id);
+            }
+
+            if (modelEmpleado == null)
+            {
+                return NotFound();
+            }
+            return View(modelEmpleado);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed( [FromBody] Empleado empleado)
+        {
+            if (ModelState.IsValid)
+            {
+                var url =   configuration.GetSection("CustomValues")
+                            .Get<List<CustomValues>>()
+                            .FirstOrDefault(x => x.key == "EliminarEmpleado")?.value;
+
+                var response = await httpClient.PostAsJsonAsync(url, empleado);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return Json(new { success = true });
+                }
+            }
+            return Json(new { success = false, message = "Error al editar usuario" });
+
+            //if (respuestaExitosa == true)
+            //{
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //else
+            //{
+            //    return Problem("Entity set 'ConnectionManagerDbContext.Usuarios'  is null.");
+            //}
+
+            //if (_context.Usuarios == null)
+            //{
+            //    return Problem("Entity set 'ConnectionManagerDbContext.Usuarios'  is null.");
+            //}
+            //var usuario = await _context.Usuarios.FindAsync(id);
+
+            /*usuario != null*/
+            //if (id == _usuario.Id)
+            //{
+            //    //_context.Usuarios.Remove(usuario);
+
+            //    var url = _configuration.GetSection("CustomValues")
+            //                .Get<List<CustomValues>>()
+            //                .FirstOrDefault(x => x.key == "EliminarUsuario")?.value;
+
+            //    var response = await httpClient.PostAsJsonAsync(url, _usuario);
+            //}
+
+            //await _context.SaveChangesAsync();
 
 
+            //var url = _configuration.GetSection("CustomValues")
+            //            .Get<List<CustomValues>>()
+            //            .FirstOrDefault(x => x.key == "EliminarUsuario")?.value;
+
+            //var response = await httpClient.PostAsJsonAsync(url, usuario);
+
+            //return RedirectToAction(nameof(Index));
+        }
     }
 }
