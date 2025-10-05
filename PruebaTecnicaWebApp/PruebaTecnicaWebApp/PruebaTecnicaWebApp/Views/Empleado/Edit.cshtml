@@ -1,14 +1,14 @@
 ﻿@model PruebaTecnicaWebApp.Models.Empleado
 
 @{
-    ViewData["Title"] = "Editar";
+    ViewData["Title"] = "Editar Empleado";
 }
 
-<h1>Editar</h1>
+<h1>Editar Empleado</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form id="formEdit" method="post">
+        <form id="formEdit" >
             @Html.AntiForgeryToken()
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdEmpleado" />
