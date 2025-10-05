@@ -1,12 +1,12 @@
 ﻿@model PruebaTecnicaWebApp.Models.Empleado
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Empleado";
 }
 
-<h1>Create</h1>
+@*<h4>Empleado</h4>*@
 
-<h4>Empleado</h4>
+<h1>Crear Empleado</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -18,21 +18,25 @@
                 <input asp-for="Nombre" class="form-control" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="Apellido" class="control-label"></label>
                 <input asp-for="Apellido" class="form-control" />
                 <span asp-validation-for="Apellido" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="FechaIngreso" class="control-label"></label>
                 <input asp-for="FechaIngreso" class="form-control" />
                 <span asp-validation-for="FechaIngreso" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="NombrePuesto" class="control-label"></label>
                 <input asp-for="NombrePuesto" class="form-control" />
                 <span asp-validation-for="NombrePuesto" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="IdTipoIdentificacion" class="control-label"></label>
                 <select asp-for="IdTipoIdentificacion" class="form-control" asp-items="ViewBag.TiposIdentificacion">
@@ -40,20 +44,22 @@
                 </select>
                 <span asp-validation-for="IdTipoIdentificacion" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="NumeroIdentificacion" class="control-label"></label>
                 <input asp-for="NumeroIdentificacion" class="form-control" />
                 <span asp-validation-for="NumeroIdentificacion" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Crear</button>
+                <button type="submit" class="btn btn-primary w-25">Crear</button>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Regresar</a>
+    <a asp-action="Index" class="btn btn-primary btn-warning">Regresar</a>
 </div>
 
 @section Scripts {
@@ -64,9 +70,9 @@
     <script>
         $(document).ready(function () {
             $("#formCreate").submit(function (e) {
-                e.preventDefault(); // Evita que el form se envíe normalmente
+                e.preventDefault(); 
 
-                var token = $('input[name="__RequestVerificationToken"]').val(); // AntiForgeryToken
+                var token = $('input[name="__RequestVerificationToken"]').val(); 
 
                 var empleado = {
                     IdEmpleado: 0,
@@ -80,15 +86,15 @@
                 };
 
                 $.ajax({
-                    url: '@Url.Action("Create", "Empleado")', // Llama a tu controller
+                    url: '@Url.Action("Create", "Empleado")', 
                     type: "POST",
                     headers: {
-                        "RequestVerificationToken": token // Necesario por [ValidateAntiForgeryToken]
+                        "RequestVerificationToken": token 
                     },
                     contentType: "application/json",
                     data: JSON.stringify(empleado),
                     success: function (result) {
-                        // Redirigir al index si todo salió bien
+                        
                         window.location.href = '@Url.Action("Index", "Empleado")';
                     },
                     error: function (xhr, status, error) {
