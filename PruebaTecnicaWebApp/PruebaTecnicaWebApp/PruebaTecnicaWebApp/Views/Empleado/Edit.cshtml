@@ -1,16 +1,14 @@
 ﻿@model PruebaTecnicaWebApp.Models.Empleado
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
-<h1>Edit</h1>
-
-<h4>Empleado</h4>
+<h1>Editar</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form id="formEdit" asp-action="Edit" method="post">
+        <form id="formEdit" method="post">
             @Html.AntiForgeryToken()
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdEmpleado" />
@@ -19,21 +17,25 @@
                 <input asp-for="Nombre" class="form-control" />
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="Apellido" class="control-label"></label>
                 <input asp-for="Apellido" class="form-control" />
                 <span asp-validation-for="Apellido" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="FechaIngreso" class="control-label"></label>
                 <input asp-for="FechaIngreso" class="form-control" />
                 <span asp-validation-for="FechaIngreso" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="NombrePuesto" class="control-label"></label>
                 <input asp-for="NombrePuesto" class="form-control" />
                 <span asp-validation-for="NombrePuesto" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="IdTipoIdentificacion" class="control-label"></label>
                 <select asp-for="IdTipoIdentificacion" class="form-control" asp-items="ViewBag.TiposIdentificacion">
@@ -41,21 +43,26 @@
                 </select>
                 <span asp-validation-for="IdTipoIdentificacion" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="NumeroIdentificacion" class="control-label"></label>
                 <input asp-for="NumeroIdentificacion" class="form-control" />
                 <span asp-validation-for="NumeroIdentificacion" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <br />
+            <div class="form-group d-flex gap-2 mt-3">
                 <button type="submit" class="btn btn-primary">Guardar</button>
+                <a asp-action="Index" class="btn btn-primary btn-warning">Regresar</a>
             </div>
         </form>
     </div>
+    <div class="col-md-8 text-center">
+        @*        <img src="https://greatplacetoworkcarca.com/wp-content/uploads/2021/10/Banco-LAFISE.png" width="800" height="300" />*@
+        <img src="https://media.licdn.com/dms/image/v2/C4D0BAQH-3Q1wX6Zmcg/company-logo_200_200/company-logo_200_200/0/1646750473239/lafise_investment_management_logo?e=2147483647&v=beta&t=Y88LOz-4LoJ64IaZjv8ew63Q8AnlYmJLqb-OnF5BkWU" width="800" height="700" class="img-fluid"/>
+    </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{
