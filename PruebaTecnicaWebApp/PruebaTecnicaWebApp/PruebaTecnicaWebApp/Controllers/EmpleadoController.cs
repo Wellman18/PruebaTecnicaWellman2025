@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using PruebaTecnicaWebApp.Models;
 using System.Text.Json;
@@ -10,11 +11,12 @@ namespace PruebaTecnicaWebApp.Controllers
         IConfiguration configuration;
         private readonly HttpClient httpClient;
         IEnumerable<Empleado> listaEmpleado = Enumerable.Empty<Empleado>();
+        IEnumerable<TipoIdentificacion> listaTipoIdentificacion = Enumerable.Empty<TipoIdentificacion>();
         Empleado modelEmpleado;
 
         public EmpleadoController(IConfiguration _configuration, HttpClient _httpClient)
         {
-            configuration= _configuration; //ObtenerEmpleado
+            configuration= _configuration; 
             httpClient = _httpClient;
         }
 
@@ -47,15 +49,71 @@ namespace PruebaTecnicaWebApp.Controllers
         }
 
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var url = configuration.GetSection("CustomValues")
+                        .Get<List<CustomValues>>()
+                        .FirstOrDefault(x => x.key == "ObtenerTipoIdentificacion")?.value;
+
+            var response = await httpClient.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+
+                listaTipoIdentificacion = JsonSerializer.Deserialize<List<Models.TipoIdentificacion>>(content, options);
+            }
+
+            ViewBag.TiposIdentificacion = new SelectList(listaTipoIdentificacion, "IdTipoIdentificacion", "Descripcion");
+
             return View();
         }
 
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(/*[Bind("Id,Nombre,Correo")]*/[FromBody] Empleado empleado)
+        {
+            if (ModelState.IsValid)
+            {
+                var url = configuration.GetSection("CustomValues")
+                        .Get<List<CustomValues>>()
+                        .FirstOrDefault(x => x.key == "CrearEmpleado")?.value;
+
+                var response = await httpClient.PostAsJsonAsync(url, empleado);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //var content = await response.Content.ReadAsStringAsync();
+
+                    //var options = new JsonSerializerOptions
+                    //{
+                    //    PropertyNameCaseInsensitive = true
+                    //};
+
+                    //listaUsuarios = JsonSerializer.Deserialize<List<Usuario>>(content, options);
+
+                    //return listaUsuarios != null
+                    //                        ? View(listaUsuarios)
+                    //                        : Problem("No se pudieron deserializar los usuarios.");
+
+                    //_context.Add(usuario);
+                    //await _context.SaveChangesAsync();
+
+                    //return RedirectToAction(nameof(Index));
+
+                    return Json(new { success = true });
+                }
+
+
+            }
+            //return View(usuario);
+            return Json(new { success = false, message = "Error al crear usuario" });
+        }
     }
 }

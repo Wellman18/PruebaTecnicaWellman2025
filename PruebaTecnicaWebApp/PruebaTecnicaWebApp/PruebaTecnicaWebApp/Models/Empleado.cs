@@ -1,4 +1,7 @@
-﻿namespace PruebaTecnicaWebApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
+
+namespace PruebaTecnicaWebApp.Models
 {
     public class Empleado
     {
@@ -12,8 +15,11 @@
 
         public string? NombrePuesto { get; set; }
 
+        [Display(Name = "TipoIdentificacion")]
         public int? IdTipoIdentificacion { get; set; }
 
         public string? NumeroIdentificacion { get; set; }
+
+        //public TipoIdentificacion Identificacion { get; set; }
     }
 }
