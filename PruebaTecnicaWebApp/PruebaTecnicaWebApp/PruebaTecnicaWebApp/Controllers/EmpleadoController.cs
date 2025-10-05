@@ -257,44 +257,6 @@ namespace PruebaTecnicaWebApp.Controllers
                 }
             }
             return Json(new { success = false, message = "Error al editar usuario" });
-
-            //if (respuestaExitosa == true)
-            //{
-            //    return RedirectToAction(nameof(Index));
-            //}
-            //else
-            //{
-            //    return Problem("Entity set 'ConnectionManagerDbContext.Usuarios'  is null.");
-            //}
-
-            //if (_context.Usuarios == null)
-            //{
-            //    return Problem("Entity set 'ConnectionManagerDbContext.Usuarios'  is null.");
-            //}
-            //var usuario = await _context.Usuarios.FindAsync(id);
-
-            /*usuario != null*/
-            //if (id == _usuario.Id)
-            //{
-            //    //_context.Usuarios.Remove(usuario);
-
-            //    var url = _configuration.GetSection("CustomValues")
-            //                .Get<List<CustomValues>>()
-            //                .FirstOrDefault(x => x.key == "EliminarUsuario")?.value;
-
-            //    var response = await httpClient.PostAsJsonAsync(url, _usuario);
-            //}
-
-            //await _context.SaveChangesAsync();
-
-
-            //var url = _configuration.GetSection("CustomValues")
-            //            .Get<List<CustomValues>>()
-            //            .FirstOrDefault(x => x.key == "EliminarUsuario")?.value;
-
-            //var response = await httpClient.PostAsJsonAsync(url, usuario);
-
-            //return RedirectToAction(nameof(Index));
         }
     }
 }
