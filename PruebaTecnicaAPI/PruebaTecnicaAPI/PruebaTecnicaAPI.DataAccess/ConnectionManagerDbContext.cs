@@ -29,6 +29,6 @@ namespace PruebaTecnicaAPI.DataAccess
 
         public DbSet<Model.Empleado> Empleado { get; set; }
 
-        public DbSet<TipoIdentificacion> TipoIdentificacion { get; set; }
+        public DbSet<Model.TipoIdentificacion> TipoIdentificacion { get; set; }
     }
 }

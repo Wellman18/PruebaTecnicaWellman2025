@@ -12,8 +12,8 @@ namespace PruebaTecnicaAPI.Model
         [Key]
         public int IdTipoIdentificacion { get; set; }
 
-        public string Codigo { get; set; }
+        public string? Codigo { get; set; }
 
-        public string Descripcion { get; set; }
+        public string? Descripcion { get; set; }
     }
 }

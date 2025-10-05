@@ -10,6 +10,9 @@ builder.Services.AddScoped<PruebaTecnicaAPI.BusinessLogic.Interface.IEmpleado, P
 builder.Services.AddScoped<IConnectionManagerDbContext, ConnectionManagerDbContext>();
 builder.Services.AddScoped<PruebaTecnicaAPI.DataAccess.Interface.IEmpleado, PruebaTecnicaAPI.DataAccess.Empleado>();
 
+builder.Services.AddScoped<PruebaTecnicaAPI.BusinessLogic.Interface.ITipoIdentificacion, PruebaTecnicaAPI.BusinessLogic.TipoIdentificacion>();
+builder.Services.AddScoped<PruebaTecnicaAPI.DataAccess.Interface.ITipoIdentificacion, PruebaTecnicaAPI.DataAccess.TipoIdentificacion>();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
