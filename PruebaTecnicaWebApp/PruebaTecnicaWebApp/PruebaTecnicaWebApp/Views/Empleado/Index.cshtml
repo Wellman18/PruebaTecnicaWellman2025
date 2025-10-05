@@ -7,6 +7,12 @@
 <h1>Index</h1>
 
 <a asp-action="Create" class="btn btn-primary" id="btnCreate"><i class="fa-solid fa-plus me-2"></i>Create New</a>
+<form id="formBuscar" >
+    <p>
+        Buscar: <input type="text" id="buscar" name="buscar" class="form-text" placeholder="Buscar No. Identificacion"/>
+        <input type="submit" value="Buscar" class="btn btn-sm btn-dark"/>
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -60,3 +66,25 @@
 }
     </tbody>
 </table>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#formBuscar").submit(function (e) {
+                e.preventDefault(); // Evita que el form se envíe normalmente
+
+                var valor = $("#buscar").val();
+
+                window.location.href = '/Empleado/Index?buscar=' + encodeURIComponent(valor);
+            });
+        });
+    </script>
+}
+

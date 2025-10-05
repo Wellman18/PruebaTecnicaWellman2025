@@ -20,7 +20,7 @@ namespace PruebaTecnicaWebApp.Controllers
             httpClient = _httpClient;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string buscar)
         {
             var url = configuration.GetSection("CustomValues")
                         .Get<List<CustomValues>>()
@@ -55,6 +55,11 @@ namespace PruebaTecnicaWebApp.Controllers
  
 
 
+                }
+
+                if (!String.IsNullOrEmpty(buscar))
+                {
+                    listaEmpleado = listaEmpleado.Where(x => x.NumeroIdentificacion!.Contains(buscar));
                 }
 
 
