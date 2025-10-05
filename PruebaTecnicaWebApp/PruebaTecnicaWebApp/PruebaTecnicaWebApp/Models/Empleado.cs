@@ -20,6 +20,6 @@ namespace PruebaTecnicaWebApp.Models
 
         public string? NumeroIdentificacion { get; set; }
 
-        //public TipoIdentificacion Identificacion { get; set; }
+        public TipoIdentificacion? Identificacion { get; set; }
     }
 }

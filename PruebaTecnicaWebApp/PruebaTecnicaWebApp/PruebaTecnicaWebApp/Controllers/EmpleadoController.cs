@@ -26,11 +26,19 @@ namespace PruebaTecnicaWebApp.Controllers
                         .Get<List<CustomValues>>()
                         .FirstOrDefault(x => x.key == "ObtenerEmpleado")?.value;
 
+            var urlTipoIdentificacion = configuration.GetSection("CustomValues")
+                                    .Get<List<CustomValues>>()
+                                    .FirstOrDefault(x => x.key == "ObtenerTipoIdentificacion")?.value;
+
             var response = await httpClient.GetAsync(url);
 
-            if (response.IsSuccessStatusCode)
+            var responseIdentificacion = await httpClient.GetAsync(urlTipoIdentificacion);
+
+            if (response.IsSuccessStatusCode && responseIdentificacion.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
+
+                var contentIdentificacion = await responseIdentificacion.Content.ReadAsStringAsync();
 
                 var options = new JsonSerializerOptions
                 {
@@ -38,6 +46,17 @@ namespace PruebaTecnicaWebApp.Controllers
                 };
 
                 listaEmpleado = JsonSerializer.Deserialize<List<Models.Empleado>>(content, options);
+
+                listaTipoIdentificacion = JsonSerializer.Deserialize<List<Models.TipoIdentificacion>>(contentIdentificacion, options);
+
+                foreach (var item in listaEmpleado)
+                {
+                    item.Identificacion = listaTipoIdentificacion.FirstOrDefault(t => t.IdTipoIdentificacion == item.IdTipoIdentificacion);
+ 
+
+
+                }
+
 
                 return listaEmpleado != null
                                         ? View(listaEmpleado)
