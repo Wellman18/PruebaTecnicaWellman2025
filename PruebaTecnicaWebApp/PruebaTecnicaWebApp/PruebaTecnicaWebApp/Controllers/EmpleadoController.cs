@@ -96,7 +96,7 @@ namespace PruebaTecnicaWebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(/*[Bind("Id,Nombre,Correo")]*/[FromBody] Empleado empleado)
+        public async Task<IActionResult> Create([FromBody] Empleado empleado)
         {
             if (ModelState.IsValid)
             {
@@ -108,24 +108,6 @@ namespace PruebaTecnicaWebApp.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    //var content = await response.Content.ReadAsStringAsync();
-
-                    //var options = new JsonSerializerOptions
-                    //{
-                    //    PropertyNameCaseInsensitive = true
-                    //};
-
-                    //listaUsuarios = JsonSerializer.Deserialize<List<Usuario>>(content, options);
-
-                    //return listaUsuarios != null
-                    //                        ? View(listaUsuarios)
-                    //                        : Problem("No se pudieron deserializar los usuarios.");
-
-                    //_context.Add(usuario);
-                    //await _context.SaveChangesAsync();
-
-                    //return RedirectToAction(nameof(Index));
-
                     return Json(new { success = true });
                 }
 
@@ -134,5 +116,110 @@ namespace PruebaTecnicaWebApp.Controllers
             //return View(usuario);
             return Json(new { success = false, message = "Error al crear usuario" });
         }
+
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            modelEmpleado = new();
+
+            var url =   configuration.GetSection("CustomValues")
+                        .Get<List<CustomValues>>()
+                        .FirstOrDefault(x => x.key == "ObtenerEmpleado")?.value;
+
+            var urlTipoIdentificacion = configuration.GetSection("CustomValues")
+                                    .Get<List<CustomValues>>()
+                                    .FirstOrDefault(x => x.key == "ObtenerTipoIdentificacion")?.value;
+
+            var response = await httpClient.GetAsync(url);
+
+            var responseIdentificacion = await httpClient.GetAsync(urlTipoIdentificacion);
+
+            if (response.IsSuccessStatusCode && responseIdentificacion.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+
+                var contentIdentificacion = await responseIdentificacion.Content.ReadAsStringAsync();
+
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+
+                var listadoEmpleados = JsonSerializer.Deserialize<List<Models.Empleado>>(content, options);
+
+                var listadoTipoIdentificacion = JsonSerializer.Deserialize<List<Models.TipoIdentificacion>>(contentIdentificacion, options);
+
+                foreach (var item in listadoEmpleados)
+                {
+                    item.Identificacion = listadoTipoIdentificacion.FirstOrDefault(t => t.IdTipoIdentificacion == item.IdTipoIdentificacion);
+                }
+
+                modelEmpleado = listadoEmpleados.FirstOrDefault(x => x.IdEmpleado == id);
+
+                ViewBag.TiposIdentificacion = new SelectList(listadoTipoIdentificacion, "IdTipoIdentificacion", "Descripcion",modelEmpleado.Identificacion.Descripcion);
+            }
+
+            if (modelEmpleado == null)
+            {
+                return NotFound();
+            }
+            return View(modelEmpleado);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, /*[Bind("Id,Nombre,Correo")]*/[FromBody] Empleado empleado)
+        {
+            //if (id != usuario.Id)
+            //{
+            //    return NotFound();
+            //}
+            empleado.IdEmpleado = id;
+
+            if (ModelState.IsValid)
+            {
+                var url = configuration.GetSection("CustomValues")
+                        .Get<List<CustomValues>>()
+                        .FirstOrDefault(x => x.key == "ModificarEmpleado")?.value;
+
+                var response = await httpClient.PostAsJsonAsync(url, empleado);
+
+                //try
+                //{
+                //    _context.Update(usuario);
+                //    await _context.SaveChangesAsync();
+                //}
+                //catch (DbUpdateConcurrencyException)
+                //{
+                //    if (!UsuarioExists(usuario.Id))
+                //    {
+                //        return NotFound();
+                //    }
+                //    else
+                //    {
+                //        throw;
+                //    }
+                //}
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //return RedirectToAction(nameof(Index));
+                    return Json(new { success = true });
+                }
+                else
+                {
+                    //return NotFound(response.StatusCode);
+                }
+
+
+
+            }
+            //return View(usuario);
+            return Json(new { success = false, message = "Error al editar empleado" });
+        }
+
+
+
     }
 }
