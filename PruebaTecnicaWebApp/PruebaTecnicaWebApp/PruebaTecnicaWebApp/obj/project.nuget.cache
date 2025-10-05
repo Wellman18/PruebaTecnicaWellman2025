@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "h0w/BPrMOGk9AnYPgdxIVFhzQ4MvVeonuQZoMQ3AddTFDdVPpZM8N1dpWeTP0vy/te5cK7UGph65FJSGV0GAAA==",
+  "success": true,
+  "projectFilePath": "C:\\PruebaTecnicaWellman2025\\PruebaTecnicaWellman2025\\PruebaTecnicaWebApp\\PruebaTecnicaWebApp\\PruebaTecnicaWebApp\\PruebaTecnicaWebApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Wellman Aranda\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
+    "C:\\Users\\Wellman Aranda\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Wellman Aranda\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
