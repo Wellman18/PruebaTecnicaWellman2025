@@ -18,7 +18,7 @@
         <button type="submit" class="btn btn-sm btn-dark"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
     </p>
 </form>
-<table class="table table-striped table-hover table-sm table-info">
+<table class="table table-striped table-hover table-sm table-info w-100">
     <thead>
         <tr>
             <th>
@@ -63,9 +63,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.NumeroIdentificacion)
             </td>
-            <td>
-                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdEmpleado"><i class="fa-solid fa-pen"></i> Editar</a> |
-                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdEmpleado"><i class="fa-solid fa-xmark"></i> Eliminar</a>
+            <td class="d-flex gap-2">
+                <a asp-action="Edit" class="btn btn-sm btn-warning" asp-route-id="@item.IdEmpleado"><i class="fa-solid fa-pen"></i> Editar</a> |
+                <a asp-action="Delete" class="btn btn-sm btn-danger" asp-route-id="@item.IdEmpleado"><i class="fa-solid fa-xmark"></i> Eliminar</a>
             </td>
         </tr>
 }
