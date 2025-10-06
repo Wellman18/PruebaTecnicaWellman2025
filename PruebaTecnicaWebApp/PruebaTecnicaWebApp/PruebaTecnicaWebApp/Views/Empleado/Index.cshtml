@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<PruebaTecnicaWebApp.Models.Empleado>
 
 @{
-    ViewData["Title"] = "Inicio";
+    ViewData["Title"] = "Empleados";
 }
 
 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -64,8 +64,8 @@
                 @Html.DisplayFor(modelItem => item.NumeroIdentificacion)
             </td>
             <td>
-                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdEmpleado">Editar</a> |
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdEmpleado">Eliminar</a>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdEmpleado"><i class="fa-solid fa-pen"></i> Editar</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdEmpleado"><i class="fa-solid fa-xmark"></i> Eliminar</a>
             </td>
         </tr>
 }
