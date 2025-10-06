@@ -4,8 +4,6 @@
     ViewData["Title"] = "Crear Empleado";
 }
 
-@*<h4>Empleado</h4>*@
-
 <h1>Crear Empleado</h1>
 <hr />
 <div class="row">
@@ -58,7 +56,6 @@
         </form>
     </div>
     <div class="col-md-8 text-center">
-@*        <img src="https://greatplacetoworkcarca.com/wp-content/uploads/2021/10/Banco-LAFISE.png" width="800" height="300" />*@
         <img src="https://media.licdn.com/dms/image/v2/C4D0BAQH-3Q1wX6Zmcg/company-logo_200_200/company-logo_200_200/0/1646750473239/lafise_investment_management_logo?e=2147483647&v=beta&t=Y88LOz-4LoJ64IaZjv8ew63Q8AnlYmJLqb-OnF5BkWU" width="800" height="700" class="img-fluid"/>
     </div>
 </div>
@@ -71,7 +68,45 @@
     <script>
         $(document).ready(function () {
             $("#formCreate").submit(function (e) {
-                e.preventDefault(); 
+                e.preventDefault();
+
+                var isValid = true;
+                var mensaje = "";
+
+                if ($("#Nombre").val().trim() === "") {
+                    isValid = false;
+                    mensaje += "El campo 'Nombre' es obligatorio.\n";
+                }
+
+                if ($("#Apellido").val().trim() === "") {
+                    isValid = false;
+                    mensaje += "El campo 'Apellido' es obligatorio.\n";
+                }
+
+                if ($("#FechaIngreso").val().trim() === "") {
+                    isValid = false;
+                    mensaje += "El campo 'Fecha de Ingreso' es obligatorio.\n";
+                }
+
+                if ($("#NombrePuesto").val().trim() === "") {
+                    isValid = false;
+                    mensaje += "El campo 'Nombre del Puesto' es obligatorio.\n";
+                }
+
+                if ($("#IdTipoIdentificacion").val().trim() === "") {
+                    isValid = false;
+                    mensaje += "Debe seleccionar un 'Tipo de Identificación'.\n";
+                }
+
+                if ($("#NumeroIdentificacion").val().trim() === "") {
+                    isValid = false;
+                    mensaje += "El campo 'Número de Identificación' es obligatorio.\n";
+                }
+
+                if (!isValid) {
+                    alert(mensaje);
+                    return; 
+                }
 
                 var token = $('input[name="__RequestVerificationToken"]').val(); 
 

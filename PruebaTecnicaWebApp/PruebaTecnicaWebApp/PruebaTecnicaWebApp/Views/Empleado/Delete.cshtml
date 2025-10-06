@@ -7,6 +7,7 @@
 <h1>Eliminar Empleado</h1>
 
 <h3>Estás seguro de eliminar este registro?</h3>
+
 <div>
     <hr />
     <dl class="row">
@@ -52,9 +53,11 @@
         @Html.AntiForgeryToken()
         <input type="hidden" asp-for="IdEmpleado" />
         <button type="submit" class="btn btn-primary">Eliminar</button> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index" class="btn btn-primary btn-warning">Regresar</a>
     </form>
 </div>
+
+
 
 
 @section Scripts {
@@ -67,9 +70,14 @@
     <script>
         $(document).ready(function () {
             $("#formDelete").submit(function (e) {
-                e.preventDefault(); // Evita que el form se envíe normalmente
+                e.preventDefault();
 
-                var token = $('input[name="__RequestVerificationToken"]').val(); // AntiForgeryToken
+                 var confirmacion = confirm("¿Estás seguro de que deseas eliminar este empleado?");
+                    if (!confirmacion) {
+                        return; 
+                    }
+
+                var token = $('input[name="__RequestVerificationToken"]').val(); 
 
                 var empleado = {
                     IdEmpleado: $("#IdEmpleado").val(),
@@ -83,15 +91,15 @@
                 };
 
                 $.ajax({
-                    url: '@Url.Action("Delete", "Empleado")', // Llama a tu controller
+                    url: '@Url.Action("Delete", "Empleado")', 
                     type: "POST",
                     headers: {
-                        "RequestVerificationToken": token // Necesario por [ValidateAntiForgeryToken]
+                        "RequestVerificationToken": token 
                     },
                     contentType: "application/json",
                     data: JSON.stringify(empleado),
                     success: function (result) {
-                        // Redirigir al index si todo salió bien
+
                         window.location.href = '@Url.Action("Index", "Empleado")';
                     },
                     error: function (xhr, status, error) {
